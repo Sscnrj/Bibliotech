@@ -12,13 +12,13 @@ import { Book } from '../../models/book.model';
 })
 export class BookDetailComponent implements OnInit {
   book!: Book;
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private bookService: BookService
   ) {}
-  
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -46,6 +46,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    // TODO 8 : Créer un bouton qui permet de revenir à la page précédente
+    this.router.navigate(['/books']);
   }
 }

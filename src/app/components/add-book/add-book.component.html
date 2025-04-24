@@ -2,9 +2,25 @@
   <h1>Ajouter un livre</h1>
   <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     <input type="text" formControlName="title" placeholder="Titre du livre">
+    <div *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched" class="error">
+      Le titre est requis.
+    </div>
+
     <input type="text" formControlName="author" placeholder="Nom de l'auteur">
+    <div *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched" class="error">
+      L’auteur est requis.
+    </div>
+
     <input type="text" formControlName="description" placeholder="Description du livre">
+    <div *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched" class="error">
+      La description est requise.
+    </div>
+
     <input type="text" formControlName="category" placeholder="Catégorie du livre">
+    <div *ngIf="bookForm.get('category')?.invalid && bookForm.get('category')?.touched" class="error">
+      La catégorie est requise.
+    </div>
+
     <button type="submit">Ajouter le livre</button>
   </form>
 </div>

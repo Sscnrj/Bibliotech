@@ -19,14 +19,14 @@ export class AddBookComponent implements OnInit {
     private router: Router
   ) {}
 
-    ngOnInit(): void {
-      this.bookForm = this.fb.group({
-        title: [''],
-        author: [''],
-        description: [''],
-        category: ['']
-      });
-    }
+  ngOnInit(): void {
+    this.bookForm = this.fb.group({
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      description: ['', [Validators.required]],
+      category: ['', Validators.required]
+    });
+  }
 
   onSubmit(): void {
     if (this.bookForm.valid) {
